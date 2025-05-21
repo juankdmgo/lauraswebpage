@@ -1,0 +1,1104 @@
+/* ========================================= */
+/* Basic Reset & Box-Sizing                  */
+/* ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ========================================= */
+/* Custom Fonts (@font-face)                 */
+/* ========================================= */
+/* CaviarDreams (para encabezados y cuerpo principal) */
+@font-face {
+  font-family: "CaviarDreams";
+  src: url("../assets/fonts/CaviarDreams.woff2") format("woff2"),
+    url("../assets/fonts/CaviarDreams.woff") format("woff"),
+    url("../assets/fonts/CaviarDreams.ttf") format("truetype");
+  font-weight: normal; /* Asegúrate de que esto coincida con el archivo de fuente */
+  font-style: normal;
+  font-display: swap; /* Muestra el texto con una fuente de respaldo hasta que cargue */
+}
+
+/* FelixTitling (para el título del header temporal) */
+@font-face {
+  font-family: "FelixTitling";
+  src: url("../assets/fonts/felixtitlingmt.woff2") format("woff2"),
+    url("../assets/fonts/felixtitlingmt.woff") format("woff"),
+    url("../assets/fonts/felixtitlingmt.ttf") format("truetype");
+  font-weight: normal; /* Asegúrate de que esto coincida con el archivo de fuente */
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ========================================= */
+/* Root Variables (Colors & Fonts)           */
+/* ========================================= */
+:root {
+  /* Header Height */
+  --header-height: 6rem;
+  --z-fixed: 1030; /* Z-index para elementos fijos (header, menú) */
+  --z-fixed-minus-1: 1029; /* Añade esta variable para el z-index del menú móvil */
+
+  /* Your provided color variables */
+  --primary-color: #5b5120; /* Marrón oscuro / verde terroso */
+  --secondary-color: #deaca9; /* Rosa suave / malva */
+  --third-color: #fde2c4; /* Melocotón claro / crema */
+  --fourth-color: #ef6328; /* Naranja vibrante */
+  --hero-bg-color: #ffe1d8; /* Rosa pastel muy claro */
+
+  /* Semantic mapping for easier understanding in components */
+  --color-header-bg: var(--primary-color);
+  --color-text-dark: var(--primary-color);
+  --color-text-light: #fff;
+  --color-button-bg: var(--fourth-color);
+  --color-button-hover: #cc541d;
+  --color-hero-background: var(--hero-bg-color);
+  --color-main-background: var(--third-color);
+  --color-card-background: #fff;
+  --color-menu-link: var(--secondary-color);
+  --color-menu-link-hover: var(--fourth-color);
+
+  /* Font Family Variables */
+  --font-heading: "CaviarDreams", sans-serif;
+  --font-body: "CaviarDreams", sans-serif;
+  --font-header-temp: "FelixTitling", serif; /* Usando serif como fallback para FelixTitling */
+}
+
+/* ========================================= */
+/* Base & Global Styles                      */
+/* ========================================= */
+html {
+  scroll-behavior: smooth; /* Desplazamiento suave al hacer clic en enlaces de anclaje */
+  scroll-padding-top: var(
+    --header-height
+  ); /* Espacio para el header fijo al desplazarse */
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text-dark);
+  background-color: var(
+    --primary-color
+  ); /* Color de fondo general de la página */
+  padding-top: var(
+    --header-height
+  ); /* <-- THIS IS THE KEY LINE */ /* Empuja el contenido debajo del header fijo */
+}
+html,
+body {
+  overflow-x: hidden; /* <-- ¡AÑADE ESTA LÍNEA PARA OCULTAR EL SCROLL HORIZONTAL! */
+}
+
+/* Evita el scroll del body cuando el menú de hamburguesa está abierto */
+body.no-scroll {
+  overflow: hidden;
+}
+
+/* Contenedor principal para limitar el ancho del contenido */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px; /* Padding a los lados en desktop */
+}
+
+/* Clase general para todas las secciones */
+.section {
+  padding: 80px 0; /* Padding vertical consistente para todas las secciones */
+}
+
+/* Utilidad Flexbox */
+.flex {
+  display: flex;
+  align-items: center; /* Alinea los ítems verticalmente en un contenedor flex */
+}
+
+/* Estilos de Encabezados (h1, h2, etc.) */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  color: var(--color-text-dark);
+  line-height: 1.2;
+  letter-spacing: 0.05em; /* Espaciado entre letras para títulos */
+}
+
+/* Estilos de Párrafos */
+p {
+  line-height: 1.6;
+  margin-bottom: 1em;
+}
+
+/* ========================================= */
+/* Button Styles                             */
+/* ========================================= */
+.button {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: var(--color-button-bg);
+  color: var(--color-text-light);
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: var(--color-button-hover);
+}
+
+/* ========================================= */
+/* Header Section                            */
+/* ========================================= */
+.header {
+  backdrop-filter: blur(
+    1px
+  ); /* <-- AJUSTADO: Más desenfoque (ej. de 5px a 8px) */
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: var(--header-height);
+  width: 100%;
+  z-index: var(--z-fixed);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  /* background-color: var(--color-header-bg); <-- LÍNEA ORIGINAL */
+  /* Puedes ajustar el 0.8 a un valor menor (ej. 0.5 para más transparencia)
+     o mayor (ej. 0.9 para menos transparencia) */
+  display: flex; /* Para centrar el nav verticalmente en el header */
+  align-items: center;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out,
+    backdrop-filter 0.3s ease-in-out;
+}
+
+.nav {
+  position: relative; /* Base para el posicionamiento absoluto del título */
+  width: 100%;
+  height: 100%; /* Asegura que el nav ocupe toda la altura del header */
+  display: flex;
+  justify-content: space-between; /* Distribuye el logo, título y menú */
+  align-items: center; /* Centra verticalmente los elementos en el nav */
+}
+
+.logo-content img {
+  height: calc(
+    var(--header-height) - 1.5rem
+  ); /* Ajusta el tamaño del logo para que quepa en el header */
+  width: auto;
+  display: block;
+}
+
+.header-title-temp {
+  position: absolute; /* Centrado absoluto */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: var(--secondary-color);
+  font-family: var(--font-header-temp);
+  font-size: 1.3rem;
+  font-weight: 100;
+  letter-spacing: 0.2rem;
+  z-index: 1; /* Asegura que esté por encima */
+  white-space: nowrap; /* Evita que el texto se rompa */
+  /* IMPORTANTE: Añade una transición para una desaparición suave */
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  /* La transición puede ser para opacidad y/o para un ligero movimiento al desaparecer */
+}
+
+.header-title-temp span {
+  font-size: 0.7rem;
+  letter-spacing: 0.1rem;
+  display: block;
+  color: var(--secondary-color);
+}
+.header-title-temp.hidden {
+  opacity: 0; /* Lo hace completamente transparente */
+  pointer-events: none; /* Impide que sea clicable o interactivo cuando está oculto */
+  /* OPCIONAL: Añade una transformación para que se deslice mientras desaparece */
+  transform: translate(
+    -50%,
+    -150%
+  ); /* Ejemplo: se desliza hacia arriba mientras se desvanece */
+}
+/* Menú de Navegación (Desktop) */
+.menu-content {
+  margin-right: 10px;
+  /* En desktop, estará dentro del flujo normal */
+  display: block; /* Por defecto visible en desktop */
+}
+
+.menu-list {
+  list-style: none;
+  gap: 30px; /* Espacio entre los ítems del menú */
+  display: flex; /* Para alinear los ítems horizontalmente */
+  transition: color 0.3s ease; /* Esto ya estaba, es bueno */
+  letter-spacing: 0.03em;
+}
+
+.menu-list a {
+  color: var(--color-menu-link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  letter-spacing: 0.03em;
+}
+
+.menu-list a:hover {
+  color: var(--color-menu-link-hover);
+}
+.header.scrolled .menu-list a {
+  color: var(
+    --primary-color
+  ); /* CAMBIO: Los enlaces se vuelven más oscuros (tu marrón oscuro) */
+}
+
+.header.scrolled .menu-list a:hover {
+  color: var(
+    --fourth-color
+  ); /* El hover puede seguir siendo el naranja vibrante */
+}
+/* Hamburger Menu Icon (Desktop: oculto) */
+.hamburger-menu {
+  display: none; /* Oculto por defecto en desktop */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+  z-index: var(--z-fixed); /* Por encima del menú si se abre */
+}
+
+.hamburger-menu .bar {
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-text-light); /* Barras blancas */
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+/* Animación de la Hamburguesa a X */
+.hamburger-menu.open .bar:nth-child(1) {
+  transform: translateY(8.5px) rotate(45deg);
+}
+
+.hamburger-menu.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.open .bar:nth-child(3) {
+  transform: translateY(-8.5px) rotate(-45deg);
+}
+
+/* ========================================= */
+/* Hero Section                              */
+/* ========================================= */
+.hero {
+  background-color: var(--color-hero-background);
+  display: flex;
+  align-items: center;
+  padding: 40px 0; /* Añade un padding vertical al hero para que su contenido no se pegue */
+
+  background-color: var(--color-hero-background);
+  display: flex; /* Usar flex para centrar el contenido verticalmente si el hero es alto */
+  align-items: center; /* Centra el hero-container verticalmente */
+}
+
+.hero-container {
+  height: 100%; /* Permite que el grid ocupe toda la altura del hero */
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* 1 parte para imagen, 2 para mensaje */
+  align-items: center;
+  gap: 50px;
+}
+
+.hero-img {
+  text-align: center;
+}
+
+.hero-img img {
+  max-width: 20rem;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.hero-message {
+  text-align: center; /* Centra el contenido (texto, botón) horizontalmente */
+  padding: 0 30px; /* Padding interno para que el texto no se pegue a los bordos */
+}
+
+.hero-message h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: var(--color-text-dark);
+  font-weight: bold;
+}
+
+.hero-message p {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 30px;
+  color: var(--color-text-dark);
+}
+
+.hero-button {
+  padding: 15px 30px; /* Tamaño un poco más grande para el botón principal */
+  font-size: 1.1rem;
+}
+
+/* ========================================= */
+/* Testimonials Section                      */
+/* ========================================= */
+.testimonials {
+  background-color: var(--third-color);
+  padding: 80px 0;
+  text-align: center;
+}
+
+.testimonials .section-title {
+  margin-bottom: 50px;
+  font-size: 2.5rem;
+  color: var(--color-text-dark);
+}
+
+.testimonials-wrapper-outer {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 10px;
+  overflow: hidden;
+  /* Ya no necesitamos flexbox aquí para desktop, Swiper lo maneja */
+}
+
+/* El contenedor de Swiper (antes testimonials-container) */
+.testimonials-swiper {
+  width: 100%;
+  height: auto; /* La altura la determina el contenido de las diapositivas */
+  padding-bottom: 40px; /* Espacio para la paginación de Swiper */
+  position: relative; /* FORZAMOS position: relative. Elimina !important después de depurar. */
+  overflow: hidden; /* Esto ayuda a contener las diapositivas y asegura el contexto */
+  /* ************************************************* */
+
+  /* TEMPORAL: Borde rojo para ver el límite exacto del contenedor del Swiper */
+
+  /* ELIMINAR O COMENTAR ESTAS LÍNEAS, ya que Swiper las manejará internamente: */
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  /* gap: 5rem; */
+  /* align-items: center; */
+  /* justify-content: center; */
+}
+
+/* Testimonial Card (la diapositiva individual) */
+.testimonial-card {
+  text-align: center;
+  max-width: 350px;
+  /* ELIMINAR O COMENTAR ESTAS LÍNEAS, Swiper controlará el tamaño de las slides */
+  /* flex: 1 1 300px; */
+  /* max-width: 350px; */ /* Swiper ya las ajusta, pero puedes mantener esto para la tarjeta en sí */
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-card p {
+  font-size: 1.1rem;
+  /* Ajusta el padding si las tarjetas se ven demasiado pegadas al borde */
+  padding: 0 10px; /* Ejemplo de padding interno para el texto */
+}
+
+/* Estilos de la Paginación de Swiper (los puntos) */
+.swiper-pagination {
+  position: relative;
+  bottom: 0;
+  padding-top: 15px;
+}
+
+.swiper-pagination-bullet {
+  background: var(--primary-color);
+  opacity: 0.5;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--fourth-color);
+  opacity: 1;
+  transform: scale(1.2);
+  transition: all 0.3s ease;
+}
+
+/* ========================================= */
+/* Swiper Navigation (Flechas)               */
+/* ========================================= */
+.swiper-button-prev,
+.swiper-button-next {
+  color: var(
+    --fourth-color
+  ); /* Tu naranja vibrante para el color de las flechas */
+  font-size: 2.5rem; /* Ajusta el tamaño de las flechas, 2.5rem es un buen tamaño inicial */
+  width: auto; /* Asegura que el ancho del botón se ajuste a la flecha */
+  height: auto; /* Asegura que la altura del botón se ajuste a la flecha */
+  transition: color 0.3s ease; /* Transición suave al pasar el ratón */
+
+  /* Opcional: Ajustar la posición si están muy pegados al borde */
+  /* left: 10px; */
+  /* right: 10px; */
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  color: darken(
+    var(--fourth-color),
+    10%
+  ); /* Oscurece el color al pasar el ratón */
+  /* Nota: `darken()` no es CSS estándar. Si lo usas, necesitas un preprocesador como Sass/Less.
+       Si no usas preprocesador, usa un color hex más oscuro directamente, ej: #cc541d. */
+}
+
+/* ========================================= */
+/* Focus Areas Section                       */
+/* ========================================= */
+.focus-areas {
+  background-color: var(--color-main-background);
+  /* padding ya definido por .section */
+  text-align: center; /* Centra el título de la sección */
+}
+
+.focus-areas-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.focus-areas .section-title {
+  margin-bottom: 50px;
+  font-size: 2.5rem;
+  color: var(--color-text-dark);
+}
+
+.focus-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.focus-card {
+  background-color: var(--color-card-background);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.focus-card-image {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.focus-card-image img {
+  max-width: 150px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.focus-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  text-align: center;
+  width: 100%;
+}
+
+.focus-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: auto; /* Empuja la lista hacia abajo */
+  margin-bottom: 20px; /* Espacio entre lista y botón */
+  width: 100%;
+}
+
+.focus-list li {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text-dark);
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.focus-list li:last-child {
+  margin-bottom: 0;
+}
+
+.focus-list li::before {
+  content: "·";
+  color: var(--fourth-color);
+  font-size: 1.5rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  line-height: 1.2;
+}
+
+.focus-card-button {
+  margin-top: auto; /* Empuja el botón al final de la tarjeta */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ========================================= */
+/* About Me Section                          */
+/* ========================================= */
+.about-me {
+  background-color: var(--color-main-background);
+  /* padding ya definido por .section */
+  text-align: center; /* Centra el título de la sección */
+}
+
+.about-me-container {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 50px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.about-me-image {
+  text-align: center;
+}
+
+.about-me-image img {
+  max-width: 350px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.about-me-content {
+  text-align: left;
+}
+
+.about-me-content .section-title {
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  color: var(--color-text-dark);
+  text-align: left;
+}
+
+.about-me-content p {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--color-text-dark);
+  margin-bottom: 20px;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.social-links a {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-size: 40px; /* Tamaño de los iconos de Font Awesome */
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+  color: var(--fourth-color);
+  transform: translateY(-5px);
+}
+
+/* ========================================= */
+/* Contact Section                           */
+/* ========================================= */
+.contact {
+  background-color: var(
+    --hero-bg-color
+  ); /* Usando el color de fondo del hero */
+  /* padding ya definido por .section */
+  text-align: center; /* Centra el título y subtítulo */
+}
+
+.contact-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.contact .section-title {
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+  color: var(--color-text-dark);
+}
+
+.contact-subtitle {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: var(--color-text-dark);
+  margin-bottom: 40px;
+}
+
+.contact-form {
+  background-color: var(--color-card-background);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-text-dark);
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  width: 100%;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--fourth-color);
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.contact-button {
+  margin-top: 10px;
+  width: auto;
+  align-self: center;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+}
+
+/* ========================================= */
+/* MEDIA QUERIES (Responsiveness)            */
+/* ========================================= */
+
+/* ----------------------------------------- */
+/* Para pantallas de hasta 992px (Tablets y Laptops Pequeñas) */
+/* ----------------------------------------- */
+@media (max-width: 992px) {
+  /* Global / General */
+  .container {
+    padding: 0 15px;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  /* Header */
+  .logo-content img {
+    height: 5.5rem; /* Ajuste para tablets */
+  }
+
+  /* Hero Section */
+  .hero-container {
+    grid-template-columns: 1fr; /* Apila imagen y mensaje */
+    gap: 40px;
+    padding: 20px;
+  }
+
+  .hero-img {
+    order: 1;
+  }
+
+  .hero-message {
+    order: 2;
+    text-align: center;
+    padding: 0;
+  }
+
+  .hero-message h2,
+  .hero-message p {
+    text-align: center;
+    padding: 0;
+  }
+
+  /* Testimonials Section (Ajustes para Swiper en Mobile/Tablet) */
+
+  .testimonials-swiper {
+    /* No hay necesidad de 'display: block' o resetear flexbox aquí,
+       ya que Swiper ahora lo maneja en todas las vistas */
+    padding: 0; /* Asegura que no haya padding conflictivo */
+  }
+
+  .testimonial-card {
+    padding: 15px; /* Ajusta padding interno para tablets */
+    margin: 0; /* Asegura que no haya márgenes externos */
+    max-width: 100%;
+  }
+
+  .testimonials-wrapper-outer {
+    padding: 0; /* El contenedor externo no necesita padding horizontal */
+  }
+  /* About Me Section */
+  .about-me-container {
+    grid-template-columns: 1fr; /* Apila imagen y contenido */
+    gap: 40px;
+    padding: 20px;
+  }
+
+  .about-me-image {
+    order: 1;
+    margin-bottom: 20px;
+  }
+
+  .about-me-content {
+    order: 2;
+    text-align: center;
+  }
+
+  .about-me-content .section-title {
+    text-align: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+}
+
+/* ----------------------------------------- */
+/* Para pantallas de hasta 768px (Teléfonos grandes y Tablets en vertical) */
+/* ----------------------------------------- */
+@media (max-width: 768px) {
+  /* Global / General */
+  .section {
+    padding: 60px 0;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  /* Header */
+  .logo-content img {
+    height: 4.5rem; /* Ajusta el tamaño del logo */
+    margin-left: 15px;
+  }
+
+  .header-title-temp {
+    font-size: 1.1rem;
+    letter-spacing: 0.1rem;
+    margin: 0 10px; /* Ajusta el margen lateral del título */
+  }
+
+  .header-title-temp span {
+    font-size: 0.6rem;
+    letter-spacing: 0.05rem;
+  }
+
+  /* Mostrar la hamburguesa y ocultar el menú de navegación principal en mobile */
+  .hamburger-menu {
+    display: flex; /* Muestra el icono de hamburguesa */
+    margin-right: 15px;
+  }
+
+  /* Oculta el menú de navegación principal para desktop y lo prepara para mobile */
+  .menu-content {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    height: calc(100vh - var(--header-height));
+    background-color: var(--color-header-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+    transform: translateX(100%); /* Oculto a la derecha */
+    transition: transform 0.3s ease-in-out;
+    z-index: var(--z-fixed-minus-1); /* Un poco por debajo del hamburger-menu */
+    overflow-y: auto;
+  }
+
+  .menu-content.open {
+    transform: translateX(0); /* Desliza el menú a la vista */
+  }
+
+  .menu-list {
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .menu-list li {
+    margin: 0;
+  }
+
+  .menu-list a {
+    font-size: 1.5rem;
+    padding: 10px 0;
+    display: block;
+  }
+
+  /* Hero Section */
+  .hero {
+    min-height: 20rem;
+    padding: 40px 0;
+  }
+
+  .hero-img img {
+    max-width: 18rem;
+  }
+
+  .hero-message h2 {
+    font-size: 1.8rem;
+  }
+
+  .hero-message p {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .hero-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  /* Testimonials Section */
+  .testimonials-container {
+    gap: 30px;
+    padding: 1rem 15px;
+  }
+
+  .testimonial-card {
+    padding: 15px;
+    /* flex: 1 1 250px; */
+  }
+
+  /* Focus Areas Section */
+  .focus-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 15px;
+  }
+
+  .focus-card {
+    padding: 25px;
+  }
+
+  .focus-card-image img {
+    max-width: 120px;
+  }
+
+  .focus-card-title {
+    font-size: 1.6rem;
+  }
+
+  .focus-list li {
+    font-size: 0.95rem;
+    padding-left: 15px;
+  }
+
+  .focus-list li::before {
+    font-size: 1.2rem;
+  }
+
+  /* About Me Section */
+  .about-me-image img {
+    max-width: 250px;
+  }
+
+  .about-me-content p {
+    font-size: 1rem;
+  }
+
+  .social-links a {
+    font-size: 35px;
+  }
+
+  /* Contact Section */
+  .contact-container {
+    padding: 0 15px;
+  }
+
+  .contact-form {
+    padding: 30px;
+  }
+
+  .form-group label {
+    font-size: 0.95rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 10px 12px;
+    font-size: 0.95rem;
+  }
+
+  .contact-button {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+}
+
+/* ----------------------------------------- */
+/* Para pantallas de hasta 576px (Teléfonos muy pequeños) */
+/* ----------------------------------------- */
+@media (max-width: 576px) {
+  /* Global / General */
+  .section {
+    padding: 40px 0;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  /* Header */
+  .logo-content img {
+    height: 4rem; /* Logo más pequeño en móviles */
+  }
+
+  .header-title-temp {
+    /* Ocultar el título temporal si no hay espacio */
+    display: none;
+  }
+
+  /* Hero Section */
+  .hero {
+    min-height: 18rem;
+    padding: 30px 0;
+  }
+
+  .hero-img img {
+    max-width: 15rem;
+  }
+
+  .hero-message h2 {
+    font-size: 1.6rem;
+  }
+
+  .hero-message p {
+    font-size: 0.9rem;
+  }
+
+  /* Testimonials Section */
+  .testimonials-container {
+    gap: 20px;
+  }
+
+  .testimonial-card {
+    padding: 10px;
+    /* flex: 1 1 100%; Cada tarjeta ocupa el 100% del ancho disponible */
+  }
+
+  /* Focus Areas Section */
+  .focus-card {
+    padding: 20px;
+  }
+
+  .focus-card-image img {
+    max-width: 100px;
+  }
+
+  .focus-card-title {
+    font-size: 1.4rem;
+  }
+
+  /* About Me Section */
+  .about-me-image img {
+    max-width: 200px;
+  }
+
+  .social-links a {
+    font-size: 30px;
+  }
+
+  /* Contact Section */
+  .contact-form {
+    padding: 20px;
+  }
+}
+/* ========================================= */
+/* Footer Section                            */
+/* ========================================= */
+footer {
+  background-color: var(
+    --primary-color
+  ); /* Usamos el color principal (marrón oscuro) */
+  color: var(--color-text-light); /* Texto blanco para contraste */
+  padding: 10px 0; /* Padding vertical */
+  text-align: center; /* Centra todo el contenido del footer */
+  font-family: var(
+    --font-body
+  ); /* Usa la fuente principal para el cuerpo de texto */
+  font-size: 0.9rem; /* Un tamaño de fuente ligeramente más pequeño */
+  line-height: 1.5; /* Espaciado entre líneas */
+}
+
+/* Si tuvieras enlaces o íconos en el footer, los estilizarías así: */
+footer a {
+  color: var(
+    --secondary-color
+  ); /* Por ejemplo, tus enlaces en el footer podrían ser del color secundario */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: var(--fourth-color); /* Y cambiar a naranja al pasar el ratón */
+}
+
+/* Media Query para el footer en pantallas más pequeñas */
+@media (max-width: 768px) {
+  footer {
+    padding: 30px 0; /* Reduce el padding en móviles */
+    font-size: 0.8rem; /* Fuente un poco más pequeña */
+  }
+}
+/* Para pantallas de hasta 576px (Móviles muy pequeños) */
+@media (max-width: 576px) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none; /* Oculta las flechas en móviles muy pequeños, ya que la paginación es suficiente */
+  }
+}

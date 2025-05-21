@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./assets/images/favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/images/favicons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./assets/images/favicons/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="./assets/images/favicons/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="./styles/style.css" />
+    <title>LR - Psicología de Bienestar</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="#inicio" class="logo-content flex">
+          <img
+            src="./assets/images/logo nav.png"
+            alt="Laura Rubio - Psicologia del Bienestar"
+          />
+        </a>
+
+        <div class="header-title-temp">
+          Laura Rubio <br />
+          <span>Psicología de Bienestar</span>
+        </div>
+
+        <div class="hamburger-menu" id="hamburger-menu">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+
+        <div class="menu-content" id="menu-content">
+          <ul class="menu-list flex">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#sobre-mi">Sobre Mí</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="#blog">Blog</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section hero" id="inicio">
+        <div class="hero-container">
+          <div class="hero-img">
+            <img src="./assets/images/hero img.png" alt="abrazo calido" />
+          </div>
+          <div class="hero-message">
+            <h2>
+              ¿Te sientes abrumado/a?<br />
+              Aquí te ayudo a construir aceptación y confianza duradera
+            </h2>
+            <p>
+              Con un enfoque psicológico especializado, te ayudaré a construir
+              hábitos alimentarios conscientes y a fortalecer la resiliencia
+              mental que necesitas en el deporte.
+            </p>
+            <a href="#contacto" class="button hero-button">Contáctame</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section testimonials" id="testimonios">
+        <div class="testimonials-wrapper-outer">
+          <div class="testimonials-swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide testimonial-card">
+                <p>
+                  "Working with <span>Laura</span> has been life-changing. I
+                  finally feel in control of my eating habits and my anxiety has
+                  significantly decreased." - S.L.
+                </p>
+              </div>
+              <div class="swiper-slide testimonial-card">
+                <p>
+                  <span>Laura</span> is incredibly supportive and insightful.
+                  She helped me identify my roadblocks and build real motivation
+                  to pursue my goals. I feel more empowered than ever." - S.K.
+                </p>
+              </div>
+              <div class="swiper-slide testimonial-card">
+                <p>
+                  "If you're looking for someone who truly understands the
+                  mental side of performance and nutrition, look no further.
+                  <span>Laura's</span> support has been fantastic." - B.N.
+                </p>
+              </div>
+              <div class="swiper-slide testimonial-card">
+                <p>
+                  "Otra testimonial fabulosa de un cliente satisfecho." -
+                  Cliente 4
+                </p>
+              </div>
+              <div class="swiper-slide testimonial-card">
+                <p>
+                  "Gran apoyo y resultados increíbles. ¡Recomendado!" - Cliente
+                  5
+                </p>
+              </div>
+            </div>
+
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </div>
+      </section>
+      <section class="section focus-areas" id="servicios">
+        <div class="focus-areas-container">
+          <h2 class="section-title">Áreas de enfoque</h2>
+
+          <div class="focus-cards-grid">
+            <div class="focus-card">
+              <div class="focus-card-image">
+                <img
+                  src="./assets/images/nutricion-ansiedad.png"
+                  alt="Ilustración de nutrición y ansiedad"
+                />
+              </div>
+              <h3 class="focus-card-title">Nutrición y ansiedad</h3>
+              <ul class="focus-list">
+                <li>
+                  Mejora tu enfoque mental, concentración y presencia durante
+                  entrenamientos y competencias.
+                </li>
+                <li>
+                  Desarrollamos estrategias efectivas para manejar la presión
+                  del rendimiento y la ansiedad relacionada con la comida.
+                </li>
+                <li>
+                  Fortalece tu autoconfianza, templanza mental y una actitud
+                  resiliente frente a los desafíos.
+                </li>
+              </ul>
+              <a
+                href="#nutricion-ansiedad-completa"
+                class="button focus-card-button"
+                >Leer más</a
+              >
+            </div>
+
+            <div class="focus-card">
+              <div class="focus-card-image">
+                <img
+                  src="./assets/images/rendimiento-comida.png"
+                  alt="Ilustración de rendimiento deportivo y comida"
+                />
+              </div>
+              <h3 class="focus-card-title">
+                Rendimiento deportivo y relación con la comida
+              </h3>
+              <ul class="focus-list">
+                <li>
+                  Identifica y transforma pensamientos y creencias que generan
+                  ansiedad frente a la alimentación.
+                </li>
+                <li>
+                  Aprende herramientas prácticas para manejar situaciones
+                  estresantes al comer.
+                </li>
+                <li>
+                  Cultiva una relación más equilibrada, intuitiva y placentera
+                  con la alimentación.
+                </li>
+              </ul>
+              <a
+                href="#rendimiento-comida-completa"
+                class="button focus-card-button"
+                >Leer más</a
+              >
+            </div>
+
+            <div class="focus-card">
+              <div class="focus-card-image">
+                <img
+                  src="./assets/images/motivacion-mental.png"
+                  alt="Ilustración de motivación y dirección mental"
+                />
+              </div>
+              <h3 class="focus-card-title">Motivación y dirección mental</h3>
+              <ul class="focus-list">
+                <li>
+                  Descubre y supera bloqueos mentales que frenan tu motivación y
+                  progreso.
+                </li>
+                <li>
+                  Clarifica tus valores y alinea tus acciones con lo que
+                  realmente te importa.
+                </li>
+                <li>
+                  Aplica técnicas prácticas para definir objetivos, generar
+                  impulso y mantener la motivación a largo plazo.
+                </li>
+              </ul>
+              <a
+                href="#motivacion-mental-completa"
+                class="button focus-card-button"
+                >Leer más</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section about-me" id="sobre-mi">
+        <div class="about-me-container">
+          <div class="about-me-image">
+            <img
+              src="./assets/images/laura-rubio-about-me.png"
+              alt="Laura Rubio, Psicóloga"
+            />
+          </div>
+          <div class="about-me-content">
+            <h2 class="section-title">Sobre Mí</h2>
+            <p>
+              Me apasiona acompañar a las personas a explorar la conexión
+              profunda entre su bienestar mental, sus hábitos alimentarios, el
+              rendimiento deportivo y su motivación personal.
+            </p>
+            <p>
+              En las sesiones suelo integrar la **Terapia Cognitivo-Conductual
+              (TCC)** para identificar y transformar patrones de pensamiento
+              poco útiles, junto con la **Terapia de Aceptación y Compromiso
+              (ACT)**, que promueve la flexibilidad psicológica y acciones
+              alineadas con los valores personales.
+            </p>
+            <p>
+              Esta combinación me permite adaptar el proceso terapéutico a tus
+              necesidades y objetivos específicos, creando un espacio seguro y
+              de confianza donde puedas construir nuevas herramientas y
+              desarrollar una resiliencia duradera.
+            </p>
+            <div class="social-links">
+              <a
+                href="https://www.instagram.com/laurarubio/"
+                target="_blank"
+                aria-label="Instagram de Laura Rubio"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="https://www.facebook.com/laurarubio/"
+                target="_blank"
+                aria-label="Facebook de Laura Rubio"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/laurarubio/"
+                target="_blank"
+                aria-label="LinkedIn de Laura Rubio"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact" id="contacto">
+        <div class="contact-container">
+          <h2 class="section-title">Contáctame</h2>
+          <p class="contact-subtitle">
+            Estoy aquí para ayudarte a construir tu bienestar. Envía tu mensaje
+            y me pondré en contacto contigo a la brevedad.
+          </p>
+
+          <form class="contact-form" action="#" method="POST">
+            <div class="form-group">
+              <label for="name">Nombre Completo:</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Correo Electrónico:</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="tu@ejemplo.com"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Teléfono (opcional):</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="Ej: +57 300 123 4567"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Tu Mensaje:</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="6"
+                placeholder="Escribe tu mensaje aquí..."
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="button contact-button">
+              Enviar Mensaje
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Laura Rubio. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="./js/script.js"></script>
+</html>
