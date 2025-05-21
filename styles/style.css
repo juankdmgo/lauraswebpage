@@ -317,11 +317,11 @@ main {
 
 /* Estilo hover para el botón "Agenda Gratis" cuando el header está scrolled */
 .header.scrolled .nav-agenda-button:hover {
-  background-color: darken(
-    var(--primary-color),
-    10%
-  ); /* Versión más oscura del primary-color al pasar el ratón */
-  /* Si no usas preprocesador (Sass/Less), usa un color hexadecimal más oscuro directamente, ej: #4b441a */
+  background-color: var(
+    --fourth-color
+  ) !important; /* <--- ¡AÑADE !important AQUÍ! */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(var(--fourth-color-rgb), 0.4);
 }
 
 /* Menú de Navegación (Desktop) */
@@ -502,7 +502,7 @@ body.no-scroll .header {
 }
 
 .hero-message p {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 500;
   margin-bottom: 30px;
   color: var(--color-text-dark);
@@ -584,6 +584,10 @@ body.no-scroll .header {
   font-size: 1.1rem;
   /* Ajusta el padding si las tarjetas se ven demasiado pegadas al borde */
   padding: 0 10px; /* Ejemplo de padding interno para el texto */
+}
+
+.testimonial-card span {
+  font-weight: bold;
 }
 
 /* Estilos de la Paginación de Swiper (los puntos) */
@@ -1088,7 +1092,7 @@ body.no-scroll .header {
   }
 
   .hero-message p {
-    font-size: 1rem;
+    font-size: 1.4rem;
     padding: 0 1rem;
   }
 
@@ -1212,7 +1216,7 @@ body.no-scroll .header {
   }
 
   .hero-message p {
-    font-size: 0.9rem;
+    font-size: 1.2em;
   }
 
   /* Testimonials Section */
