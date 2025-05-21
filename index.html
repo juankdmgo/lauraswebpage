@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -42,20 +42,22 @@
     <link rel="stylesheet" href="./styles/style.css" />
     <title>LR - Psicología de Bienestar</title>
   </head>
+
   <body>
     <header class="header">
       <nav class="nav">
-        <a href="#inicio" class="logo-content flex">
-          <img
-            src="./assets/images/logo nav.png"
-            alt="Laura Rubio - Psicologia del Bienestar"
-          />
-        </a>
-
-        <div class="header-title-temp">
-          Laura Rubio <br />
-          <span>Psicología de Bienestar</span>
-        </div>
+       <div class="nav-left-group flex">
+      <a href="#inicio" class="logo-content flex">
+        <img
+          src="./assets/images/logo nav.png"
+          alt="Laura Rubio - Psicologia del Bienestar"
+        />
+      </a>
+      <div class="header-title-temp">
+        Laura Rubio <br />
+        <span>Psicología de Bienestar</span>
+      </div>
+    </div>
 
         <div class="hamburger-menu" id="hamburger-menu">
           <div class="bar"></div>
@@ -67,9 +69,10 @@
           <ul class="menu-list flex">
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#areas-de-enfoque">Enfoque</a></li>
             <li><a href="#sobre-mi">Sobre Mí</a></li>
             <li><a href="#contacto">Contacto</a></li>
-            <li><a href="#blog">Blog</a></li>
+             <a href="#modal-overlay-agendar-sesion" class="button nav-agenda-button">Agenda Gratis</a> </li>
           </ul>
         </div>
       </nav>
@@ -91,7 +94,7 @@
               hábitos alimentarios conscientes y a fortalecer la resiliencia
               mental que necesitas en el deporte.
             </p>
-            <a href="#contacto" class="button hero-button">Contáctame</a>
+            <a href="#modal-overlay-agendar-sesion" class="button hero-button">Agenda una Sesión de Prueba</a>
           </div>
         </div>
       </section>
@@ -136,12 +139,12 @@
             </div>
 
             <div class="swiper-pagination"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
           </div>
         </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
       </section>
-      <section class="section focus-areas" id="servicios">
+      <section class="section focus-areas" id="areas-de-enfoque">
         <div class="focus-areas-container">
           <h2 class="section-title">Áreas de enfoque</h2>
 
@@ -169,7 +172,7 @@
                 </li>
               </ul>
               <a
-                href="#nutricion-ansiedad-completa"
+                href="#modal-overlay-nutricion-ansiedad"
                 class="button focus-card-button"
                 >Leer más</a
               >
@@ -200,7 +203,7 @@
                 </li>
               </ul>
               <a
-                href="#rendimiento-comida-completa"
+                href="#modal-overlay-rendimiento-comida"
                 class="button focus-card-button"
                 >Leer más</a
               >
@@ -229,7 +232,7 @@
                 </li>
               </ul>
               <a
-                href="#motivacion-mental-completa"
+                href="#modal-overlay-motivacion-mental"
                 class="button focus-card-button"
                 >Leer más</a
               >
@@ -292,6 +295,123 @@
           </div>
         </div>
       </section>
+      <section class="section services-section" id="servicios">
+        <div class="container services-container">
+          <h2 class="section-title">Servicios</h2>
+
+          <div class="service-item individual-therapy">
+            <h3 class="service-title">Terapia Individual (1:1)</h3>
+            <p class="service-description">
+              ¿Buscas un cambio profundo y duradero? Este es tu espacio seguro
+              para explorar y transformar desafíos como la ansiedad relacionada
+              con la alimentación, optimizar tu rendimiento deportivo, potenciar
+              tu bienestar emocional o impulsar tu desarrollo personal. Juntos,
+              crearemos un camino adaptado exclusivamente a tus necesidades para
+              que alcances tus metas con confianza.
+            </p>
+            <div class="service-details">
+              <div class="detail-item">
+                <i class="fas fa-globe"></i>
+                <p class="service-modality">
+                  <strong>Modalidad:</strong> Online
+                </p>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-hand-holding-usd"></i>
+                <p class="service-price">
+                  <strong>Valor:</strong> $100.000 COP por sesión
+                </p>
+              </div>
+            </div>
+            <a
+              href="#modal-overlay-agendar-sesion"
+              class="button service-contact-button"
+              >Agenda tu Sesión</a
+            >
+          </div>
+
+          <div class="service-item group-workshops">
+            <h3 class="service-title">
+              Talleres Grupales (para instituciones, equipos o empresas)
+            </h3>
+            <p class="service-description">
+              Potencia el crecimiento y el rendimiento colectivo de tu equipo o
+              institución. Ofrezco talleres interactivos y personalizados que
+              fortalecen habilidades emocionales, cohesión y resiliencia,
+              creando un impacto positivo y duradero.
+            </p>
+
+            <div class="workshop-list-swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide workshop-item">
+                  <div class="workshop-icon"><i class="fas fa-medal"></i></div>
+                  <h4 class="workshop-title">Confianza y Competitividad</h4>
+                  <p class="workshop-details">
+                    Desarrolla una mentalidad ganadora. Este taller impulsa la
+                    seguridad personal, la resiliencia ante la presión y la
+                    autoconfianza indispensable para sobresalir en cualquier
+                    entorno competitivo.
+                  </p>
+                  <div class="workshop-meta-wrapper">
+                    <p class="workshop-meta">
+                      <strong>Duración:</strong> 1 hora
+                    </p>
+                    <p class="workshop-meta">
+                      <strong>Valor:</strong> $250.000 COP
+                    </p>
+                  </div>
+                </div>
+
+                <div class="swiper-slide workshop-item">
+                  <div class="workshop-icon">
+                    <i class="fas fa-heartbeat"></i>
+                  </div>
+                  <h4 class="workshop-title">Bienestar Laboral y Emocional</h4>
+                  <p class="workshop-details">
+                    Transforma el ambiente de tu organización. Fomenta la salud
+                    mental, reduce el estrés laboral y mejora la cohesión del
+                    equipo para un entorno de trabajo más positivo y productivo.
+                  </p>
+                  <div class="workshop-meta-wrapper">
+                    <p class="workshop-meta">
+                      <strong>Duración:</strong> 1 hora
+                    </p>
+                    <p class="workshop-meta">
+                      <strong>Valor:</strong> $300.000 COP
+                    </p>
+                  </div>
+                </div>
+
+                <div class="swiper-slide workshop-item">
+                  <div class="workshop-icon">
+                    <i class="fas fa-lightbulb"></i>
+                  </div>
+                  <h4 class="workshop-title">Valores y Autoconocimiento</h4>
+                  <p class="workshop-details">
+                    Redefine tu propósito. Guía a los participantes a conectar
+                    con sus valores esenciales, fortaleciendo su identidad y
+                    alineando sus decisiones con lo que realmente les importa
+                    para una vida más auténtica y dirigida.
+                  </p>
+                  <div class="workshop-meta-wrapper">
+                    <p class="workshop-meta">
+                      <strong>Duración:</strong> 1 hora
+                    </p>
+                    <p class="workshop-meta">
+                      <strong>Valor:</strong> $250.000 COP
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-pagination workshop-pagination"></div>
+            </div>
+            <a href="#contacto" class="button service-contact-button"
+              >Solicita una Propuesta</a
+            >
+          </div>
+        </div>
+      </section>
 
       <section class="section contact" id="contacto">
         <div class="contact-container">
@@ -351,6 +471,95 @@
           </form>
         </div>
       </section>
+      <div class="modal-overlay" id="modal-overlay-nutricion-ansiedad">
+        <div class="modal-content">
+          <button class="modal-close-button">&times;</button>
+          <h3 class="modal-title">Nutrición y ansiedad: Profundizando</h3>
+          <div class="modal-article">
+            <p>
+              En el ajetreo de la vida moderna, la relación entre lo que comemos
+              y cómo nos sentimos mentalmente es más profunda de lo que
+              imaginamos. La ansiedad puede manifestarse en nuestros hábitos
+              alimentarios a través de restricciones excesivas, atracones
+              emocionales o una preocupación constante por la comida y el peso.
+              **Tratar la ansiedad ligada a la nutrición es crucial porque te
+              libera de un ciclo agotador de culpa y control.** Cuando sanas
+              esta relación, no solo mejoras tu salud física, sino que recuperas
+              la paz mental, la libertad para disfrutar de la comida y la
+              energía para vivir plenamente, transformando tu bienestar de
+              adentro hacia afuera.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-overlay" id="modal-overlay-rendimiento-comida">
+        <div class="modal-content">
+          <button class="modal-close-button">&times;</button>
+          <h3 class="modal-title">
+            Rendimiento deportivo y relación con la comida: Más allá del plato
+          </h3>
+          <div class="modal-article">
+            <p>
+              Para un atleta, la comida es combustible, pero la mente es el
+              motor. Una relación disfuncional con la alimentación, marcada por
+              la presión, el miedo a ciertos alimentos o los desórdenes, puede
+              sabotear el rendimiento tanto como una lesión física. **Es vital
+              abordar la relación con la comida desde una perspectiva
+              psicológica en el deporte porque impacta directamente tu
+              resistencia, tu enfoque mental y tu capacidad de recuperación.**
+              Al cultivar una relación equilibrada e intuitiva con lo que comes,
+              no solo optimizas tu físico, sino que construyes una fortaleza
+              mental inquebrantable, necesaria para alcanzar tus metas y
+              disfrutar el proceso sin caer en el agotamiento.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-overlay" id="modal-overlay-motivacion-mental">
+        <div class="modal-content">
+          <button class="modal-close-button">&times;</button>
+          <h3 class="modal-title">
+            Motivación y dirección mental: El poder de tu mente
+          </h3>
+          <div class="modal-article">
+            <p>
+              La motivación no es un interruptor que se enciende o apaga, sino
+              un proceso que se nutre y se dirige. A menudo, lo que nos frena no
+              es la falta de capacidad, sino bloqueos mentales, miedos o una
+              falta de claridad sobre lo que realmente queremos. **Tratar tu
+              motivación y dirección mental es fundamental porque es la brújula
+              que guía todas tus acciones y el motor que te permite superar los
+              desafíos.** Al entender y manejar tu mente, no solo rompes ciclos
+              de procrastinación o auto-sabotaje, sino que alineas tus esfuerzos
+              con tus valores más profundos, desbloqueando tu verdadero
+              potencial y construyendo una resiliencia que te impulsa hacia el
+              éxito duradero en cualquier ámbito de tu vida.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-overlay" id="modal-overlay-agendar-sesion">
+        <div class="modal-content">
+          <button class="modal-close-button">&times;</button>
+                      <div class="calendly-widget-wrapper">
+              <!-- Calendly inline widget begin -->
+              <!-- Calendly inline widget begin -->
+              <div
+                class="calendly-inline-widget"
+                data-url="https://calendly.com/diazmarchena96/30min?text_color=5b5120&primary_color=ef6328"
+                style="min-width: 320px; height: 700px"
+              ></div>
+              <script
+                type="text/javascript"
+                src="https://assets.calendly.com/assets/external/widget.js"
+                async
+              ></script>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
     <footer>
